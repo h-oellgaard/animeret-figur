@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change and Shape Toggle with Text</title>
+    <style>
+        /* Grundlæggende stil for boksen */
+        .animated-box {
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 20% auto;
+            border-radius: 50%; /* Gør boksen rund */
+            display: flex; /* Gør boksen til en flex container */
+            justify-content: center; /* Centrer indholdet vandret */
+            align-items: center; /* Centrer indholdet lodret */
+            color: white; /* Tekstfarve */
+            font-family: Arial, sans-serif; /* Skrifttype */
+            cursor: pointer; /* Ændrer musemarkøren til en hånd, når den er over boksen */
+
+            /* Animationseffekt */
+            animation: colorChange 5s infinite;
+        }
+
+        /* Keyframes for colorChange-animationen */
+        @keyframes colorChange {
+            0% {
+                background-color: blue;
+            }
+            25% {
+                background-color: red;
+            }
+            50% {
+                background-color: green;
+            }
+            75% {
+                background-color: yellow;
+            }
+            100% {
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Boksen med teksten "click me", der vil blive animeret -->
+    <div class="animated-box" onclick="toggleShape(this)">click me</div>
+
+    <script>
+        function toggleShape(element) {
+            if (element.style.borderRadius === "50%") {
+                element.style.borderRadius = "0"; // Gør boksen firkantet
+            } else {
+                element.style.borderRadius = "50%"; // Gør boksen rund igen
+            }
+        }
+    </script>
+</body>
+</html>
